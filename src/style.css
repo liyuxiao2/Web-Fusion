@@ -1,0 +1,282 @@
+@keyframes fade {
+    0% {opacity: 0.0}
+    25%  {opacity: 0.25}
+    50%  {opacity: 0.50}
+    75%  {opacity: 0.75}
+    100% {opacity: 1.0}
+}
+
+@keyframes fade-colour {
+    0% {opacity: 0.0}
+    25%  {opacity: 0.25}
+    50%  {opacity: 0.50}
+    75%  {opacity: 0.75}
+    100% {opacity: 1.0}
+}
+
+.sour-gummy-font {
+  font-family: "Sour Gummy", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.outfit-font {
+    font-family: "Outfit", serif;
+    font-optical-sizing: auto;
+    font-weight: 10px;
+    font-style: normal;
+  }
+
+.funnel-sans-font {
+  font-family: "Funnel Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body {
+    overscroll-behavior: none;
+}
+
+#header {
+    display: flex;
+    height: 125px;
+    width: 92%;
+    align-items: center;
+    background-color: rgb(42, 59, 95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-logo {
+    margin-right: auto;
+    display: flex;
+}
+
+.header-img {
+    width: 82px;
+    height: 80px;
+}
+
+.header-title {
+    font-family: "Sour Gummy", serif;
+    font-size: 32px;
+    color: rgb(168, 199, 247);
+}
+
+.header-links {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    font-size: 18px;
+    font-family: "Funnel Sans", serif; 
+}
+
+.header-link {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: rgb(42, 59, 95);
+}
+
+.header-link:hover {
+    transition: background-color 0.5s, color 0.5s;
+    background-color: rgb(168, 199, 247);
+    color: rgb(14, 14, 14);
+}
+
+.header-link:active {
+    transition: transform 0.2s;
+    transform: scale(0.9)
+}
+
+.header-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    background-color: rgb(42, 59, 95);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.odd-slide {
+    background-color: rgba(42, 59, 95, 0.1);
+
+}
+
+.even-slide {
+    background-color: white;
+    padding-left: 75px;
+}
+
+.slide {
+    display: flex;
+    padding-bottom: 150px;
+    padding-top: 125px;
+    width: 92%;
+    gap: 225px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.odd-slide-text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 45%;
+}
+
+.even-slide-text {
+    color: rgb(42, 59, 95);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 45%;
+}
+
+.slide-title {
+    font-size: 70px;
+    font-family: "Outfit", serif;
+    animation-fill-mode: backwards; /* Sets the element to match the first keyframe before animation */
+    animation-name: fade;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+}
+
+.slide-info {
+    font-size: 20px;
+    line-height: 35px;
+    font-family: "Outfit", serif;
+    animation-fill-mode: backwards;
+    animation-delay: 0.2s;
+    animation-name: fade;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+}
+
+.body-top-img {
+    width: 43%;
+    height: 100%;
+    min-width: 200px;
+}
+
+#medal {
+    width: 43%;
+    height: 100%;
+    min-width: 250px;
+}
+
+.degree {
+    text-decoration: underline;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Funnel Sans", serif;
+    background-color: rgb(168, 199, 247);
+    padding-bottom: 30px;
+}
+
+.footer-title {
+    font-size: 30px;
+}
+
+.footer-links {
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+    justify-content: center;
+}
+
+.footer-link {
+    color:rgb(14, 14, 14);
+    text-decoration: none;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 932px) {
+    .slide {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .body-top-img {
+        order: 1;
+        width: 65%;
+    }
+
+    .odd-slide-text {
+        order: 2;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+    }
+    
+    .even-slide-text {
+        align-items: flex-start;
+        justify-content: center;
+        width: 80%;
+    }
+
+    .slide-title {
+        text-align: center;
+    }
+
+    .even-slide {
+        padding-left: 0px;
+    }
+
+    #header {
+        height: 200px;
+        flex-direction: column;
+        justify-content: center;
+        position: static;
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+        border-bottom-color: rgb(168, 199, 247);
+    }
+
+    .header-logo {
+        margin-right: 0px;
+    }
+
+    .footer-link {
+        width: 50%;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 10%
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
