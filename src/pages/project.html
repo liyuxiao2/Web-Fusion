@@ -1,7 +1,9 @@
 <!doctype html>
 <!--
-TODO: This is a comment. Change this header comment to describe the 
-web page and include your name as author.
+Updated TutorMatch Development Plan - Deliverable 2
+Team: WebFusion | Date: April 25, 2025
+Members: Nevathan, Liyu, Adrian, Abishan
+Changes from original are clearly marked with <u>Revised:</u>
 -->
 <html>
 
@@ -9,20 +11,10 @@ web page and include your name as author.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital@0;1&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
     <title>Projects</title>
 </head>
 
 <body>
-
     <div class="header-body">
         <div id="header">
             <div class="header-logo">
@@ -42,189 +34,66 @@ web page and include your name as author.
                 <h1 class="slide-title">TutorMatch</h1>
                 <h1 class="slide-subtitle">with Samuel Dovbenyuk</h1>
                 <p class="slide-info report-info">
-                    <strong>1. Names: Your team, the client, and the app (or suite of apps)</strong><br>
-                    Team: Nevathan, Abishan, Adrian, Liyu<br>
-                    Client: Sam Dovbenyuk (student)<br>
-                    Name of Application: Tutor Match<br>
-                    An application that matches tutors with tutees, simplifying the process of finding a suitable
-                    tutor<br><br>
+
+                    <strong>1. Names</strong><br>
+                    Team: WebFusion<br>
+                    Members: Nevathan, Abishan, Adrian, Liyu<br>
+                    Client: Sam Dovbenyuk<br>
+                    Application: TutorMatch<br><br>
 
                     <strong>2. Purpose</strong><br>
-
-                    The "Tutor Match" app is designed to simplify finding and connecting with tutors through a
-                    swipe-based interface similar to Tinder. Tutees can swipe right or left on tutors based on criteria
-                    such as GPA, major, hourly rate, and past reviews. If both parties swipe right, they are matched and
-                    can communicate or schedule sessions. This approach directly addresses the needs identified in the
-                    initial client report from Sam Dovbenyuk, who wanted a platform that streamlined the tutor search
-                    process, making it faster and more reliable. Sam also noted a gap in the market where existing
-                    platforms charge fees for access to tutors. "Tutor Match" solves this problem by offering a free,
-                    user-friendly solution that allows students to quickly find and choose tutors based on key academic
-                    and financial factors, without the additional costs.<br><br>
+                    <u>Original:</u> A Tinder-style swipe-based tutor-tutee matching system.<br>
+                    <u>Revised:</u> Swipe functionality was removed due to a limited number of tutors. We now use an "accept" button for match confirmations. Tutors apply through an interview process to be featured on the site. This streamlines the matching system and meets client needs more effectively.<br><br>
 
                     <strong>3. Data Description</strong><br>
-                    Users: To store basic information for all users (tutors and clients). It will include user_id
-                    (Primary Key, INT), name (VARCHAR(100)), email (VARCHAR(100)), password (VARCHAR(255)), role
-                    (ENUM('tutor', 'client')), and created_at (TIMESTAMP).<br>
-                    Tutors: To store tutor-specific details. It will include tutor_id (Primary Key, INT), user_id (INT),
-                    GPA (FLOAT), hourly_rate (FLOAT), bio (TEXT), and subjects (VARCHAR(255)).<br>
-                    Clients: To store client-specific details. It will include client_id (Primary Key, INT), user_id
-                    (INT), preferred_subjects (VARCHAR(255)), and budget (FLOAT).<br>
-                    Matches: To track matches between tutors and clients. It will include match_id (Primary Key, INT),
-                    tutor_id (INT), client_id (INT), matched_at (TIMESTAMP), and status (VARCHAR(20)).<br>
-                    Swipes: To track swipes made by clients on tutors. It will include the swipe_id (Primary Key, INT),
-                    client_id (INT), tutor_id (INT), direction (VARCHAR(10)), and swiped-at (TIMESTAMP).<br>
-                    Reviews: To store reviews and ratings for tutors. It will include review_id (Primary Key, INT),
-                    session_id (INT), rating (INT), comment (TEXT), and reviewed_at (TIMESTAMP)<br><br>
+                    <u>Original:</u> Included swipes and AI-based matching data.<br>
+                    <u>Revised:</u> Removed swipe and match-related tables. Added a 'notifications' table to enable engagement and timely updates.<br>
+                    <br>
+                    <b>Users</b>: user_id, name, email, password, role, created_at<br>
+                    <b>Tutors</b>: tutor_id, user_id, GPA, hourly_rate, bio, subjects<br>
+                    <b>Clients</b>: client_id, user_id, preferred_subjects, budget<br>
+                    <b>Notifications</b>: notification_id, user_id, message, created_at, read_status<br><br>
 
-                    <strong>4. Functions performed by the app</strong><br>
-                    Create User Profile (INSERT) - Users provide their name, age, courses, GPA, and other relevant
-                    information to create their account and select whether they are creating a tutor or tutee
-                    account<br>
+                    <strong>4. Functions Performed by the App</strong><br>
+                    - Create, update, and delete profiles<br>
+                    - Tutors apply to be listed on the platform<br>
+                    - Tutees browse available tutors and accept matches<br>
+                    - Notifications sent to improve engagement<br>
+                    <u>Removed:</u> Swipe and AI matchmaking features<br><br>
 
-                    Update user profile (UPDATE) - Users can update relevant profile information<br>
-
-                    Swipe on Tutors (SELECT) - Tutees can swipe to view tutors view information about them and decide if
-                    they want to connect with them.<br>
-
-                    Delete Profile (Delete) - Users can delete their profile<br><br>
-
-                    <strong>5. Role of PHP and JavaScript</strong><br>
-                    The client side of the app will be built using ReactJS, which allows us to create components for
-                    parts of our app. This will include tutor profile cards, swipe functionality, and various pages such
-                    as profile setup, browsing tutors, and messaging. React’s state management will help track user
-                    interactions, like swipes and matches, in real time without needing to reload the page.
-                    Additionally, React’s routing will ensure smooth navigation between pages, creating a seamless
-                    experience. JavaScript will handle tasks such as rendering tutor profiles dynamically, responding to
-                    swipes or button clicks, and providing instant UI feedback when a match is made. It will also manage
-                    form validation for user registration, login, and profile setup to ensure all information is
-                    properly entered before being sent to the server.<br>
-                    On the back end, PHP will be responsible for managing the database, storing user information, and
-                    running the core logic that connects tutors and tutees. When a user swipes on a profile or updates
-                    their preferences, PHP will process this data and determine potential matches based on criteria like
-                    subject expertise, location, and price. PHP will also manage and handle updates to profiles and
-                    match statuses. It will work with the front end by receiving requests from JavaScript, processing
-                    the data, and sending back responses in formats like JSON for the front end to interpret and
-                    render.<br><br>
+                    <strong>5. Technologies Used</strong><br>
+                    <u>Revised:</u> PHP is used for server-side logic, data handling, and form processing. JavaScript enhances client-side interactivity. React is used for UI components. SQL manages the database. We removed Node.js to simplify deployment on our university-provided server.<br><br>
 
                     <strong>6. Roles of Team Members</strong><br>
+                    <u>Revised:</u> All members contributed to both front-end and back-end to ensure fair distribution and experience across all technologies.<br>
+                    - <u>Nevathan:</u> PHP backend logic, SQL queries for user authentication, React tutor acceptance flow, HTML structure edits, JavaScript event handling<br>
+                    - <u>Liyu:</u> Notification system using PHP/SQL, styled components using HTML/CSS, JavaScript for alert updates, React components<br>
+                    - <u>Adrian:</u> Front-end using React, SQL optimization for tutor search, PHP session management, HTML content layout, JavaScript for interactivity<br>
+                    - <u>Abishan:</u> HTML/CSS layout and responsive design, JavaScript logic for buttons and accept flow, PHP form validation, React component integration, SQL inserts for applications<br><br>
 
-                    Based on our client report and our team’s strengths, we’ve divided the tasks into four key
-                    areas:
-                    Backend API and AI Matching Integration (Nevathan/Liyu): Liyu, with the assistance of Nevathan,
-                    will
-                    lead the design and development of our API endpoints using Node and Express, with a focus on
-                    integrating the AI-driven matching algorithm that personalizes connections between tutors and
-                    tutees. He will also ensure that the API securely communicates with our SQL database.<br>
+                    <strong>7. Increments</strong><br>
+                    <b>Increment 1 (April 1):</b> Basic MVP – User login, registration, and tutor application form<br>
+                    <b>Increment 2 (April 8):</b> Notifications, Accept Button logic, full tutee interface<br><br>
 
+                    <strong>8. Client Feedback and Changes</strong><br>
+                    Sam commented, "The swipe system looks cool but might not work well with only a few tutors."<br>
+                    <u>Change made:</u> Replaced swipe with an accept button and simplified tutor-tutee matching.<br><br>
+                    Sam said, "Notifications would help keep users engaged."<br>
+                    <u>Change made:</u> We added a notification system to alert tutees about tutor responses and updates.<br><br>
+                    Sam also noted, "We don't need a separate tutor portal—just have tutors apply, and we approve them."<br>
+                    <u>Change made:</u> Removed the tutor-side of the site. Tutors now apply via form and are reviewed by admins.<br><br>
+                    <u>Status:</u> We haven’t shown the final version yet, but the feedback was incorporated into the revised direction. Sam remarked, "This is more realistic and clean – I think it'll work better for students here."
 
-                    Dynamic Rating and Pay System (Nevathan/Liyu): Nevathan, with the assistance of Liyu, will focus
-                    on
-                    building the backend functionality for our dynamic rating and pay system. This involves creating
-                    the
-                    logic that adjusts tutor rates based on feedback and ensuring that all transactions and updates
-                    are
-                    reflected accurately in the database.<br>
-
-
-                    Swipe-based Matching Interface (Adrian): Adrian will spearhead the front-end development of the
-                    swipe-based functionality. This includes building an engaging interface with React where tutees
-                    can
-                    swipe left or right based on tutor preferences, such as rate of pay and education. He will
-                    ensure
-                    that the interface is responsive and communicates effectively with the backend API.<br>
-
-
-                    Overall User Interface and Integration (Abishan): Abishan will work on the broader aspects of
-                    the
-                    front-end design, focusing on the overall look and feel of TutorMatch. This includes integrating
-                    the
-                    swipe functionality into a cohesive, user-friendly experience and managing the integration of
-                    other
-                    UI elements like the dynamic rating display, profile information, and resource links.<br>
-                    Throughout our development process, each team member will contribute to the JavaScript/PHP code,
-                    ensuring that our collaborative efforts meet the assignment's requirements.
-                    <br><br>
-
-                    <strong>7. The increments</strong><br>
-                    Below is our proposed plan for incremental deliveries, with each increment detailing specific
-                    functionalities assigned to our team members and their respective target dates:<br>
-                    Increment 1: Core MVP (April 1)<br>
-
-                    Nevathan: Develop basic backend API endpoints using PHP (with other languages) for user
-                    authentication,
-                    profile creation, and data retrieval, ensuring seamless communication with our SQL database.
-                    <br><br>
-                    Liyu: Set up the foundational structure for the dynamic rating and pay system by creating the
-                    necessary
-                    data models and integrating basic rating logic into the backend.<br><br>
-                    Adrian: Build a preliminary swipe-based interface using React, incorporating static data to
-                    simulate the
-                    left/right swipe functionality that filters tutor profiles.<br><br>
-                    Abishan: Design and integrate the overall user interface, including the landing page and
-                    navigation
-                    elements, and ensure the swipe interface is responsive across devices.<br><br>
-
-                    Increment 2: Enhanced Platform Features (April 8)<br>
-                    Nevathan: Integrate an AI-driven matching algorithm into the API to personalize tutor-tutee
-                    connections
-                    and enhance the backend functionalities.<br><br>
-                    Liyu: Expand the dynamic rating and pay system by implementing real-time updates based on feedback,
-                    ensuring tutors' rates adjust accurately with each interaction.<br><br>
-                    Adrian: Upgrade the swipe-based interface to incorporate real-time tutor data, allowing tutees to
-                    filter
-                    profiles by preferences such as rate of pay and education.<br><br>
-                    Abishan: Refine the user interface to include additional details, such as platform credits to Sam
-                    and
-                    WebFusion, support contact information, and seamless links to further resources while maintaining
-                    consistency across mobile and desktop environments.<br><br>
-
-                    <strong>8. Client Feedback</strong><br>
-
-                    During our presentation, we introduced TutorMatch as a platform for tutors and tutees to connect.
-                    Still,
-                    our client Sam emphasized that while the basic concept was solid, it needed to offer something more
-                    innovative to stand out. Sam remarked, "I like the idea of a meeting platform, but you need to offer
-                    something more innovative than what everyone else is doing," and he stressed that "just connecting
-                    tutors and tutees isn’t enough; there has to be a distinctive feature that sets us apart." Taking
-                    his
-                    feedback into account, we decided to add swipe functionality, where tutees can swipe left or right
-                    based
-                    on their tutor preferences, including factors such as pay rate and education. Additionally, we are
-                    planning to integrate an AI-driven matching algorithm to personalize connections and introduce a
-                    dynamic
-                    rating and pay system that rewards tutors based on positive feedback from tutees. We are also
-                    committed
-                    to developing an engaging, user-friendly interface that works seamlessly on both mobile and desktop
-                    devices. While TutorMatch is still in development, these planned enhancements are designed to
-                    transform
-                    it from a simple meeting platform into a dynamic and innovative ecosystem.
                 </p>
             </div>
-
         </div>
     </div>
-
-    <!-- <div class="odd-slide top-slide">
-            <div class="slide">
-                <div class="odd-slide-text">
-                    <h1 class="slide-title">Projects</h1>
-                    <p class="slide-info">
-                        As of now there's nothing but soon enough we'll be active and running!
-                    </p>
-                </div>
-                <img src="../images/keyboard.png" class="keyboard-img slide-img">
-            </div>
-        </div>
-    </div> -->
-
-
-    <!--Next Slide Goes Here (as EVEN)-->
 
     <div id="footer">
         <div class="footer-links">
             <a href="https://github.com/liyuxiao2/Web-Fusion" target="_blank" class="footer-link">GitHub</a>
             <a href="https://example.com" target="_blank" class="footer-link">Instagram</a>
-            <a href="https://example.com" target="_blank" class="footer-link">Stay Away</a>
+            <a href="https://example.com" target="_blank" class="footer-link">Contact</a>
         </div>
         <p class="copyright">Copyright WebFusion&copy; 2025. All rights reserved</p>
     </div>
